@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* ===== HAMBURGER MENU ===== */
   const header = document.querySelector(".site-header");
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
@@ -7,14 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const setMenuState = (isOpen) => {
     if (!header || !hamburger) return;
-
     header.classList.toggle("menu-open", isOpen);
     hamburger.setAttribute("aria-expanded", String(isOpen));
     hamburger.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   };
 
   const closeMenu = () => setMenuState(false);
-
   const toggleMenu = () => {
     const isOpen = hamburger?.getAttribute("aria-expanded") === "true";
     setMenuState(!isOpen);
@@ -28,8 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener("click", (event) => {
-      const target = event.target;
-      if (!header.contains(target)) {
+      if (!header.contains(event.target)) {
         closeMenu();
       }
     });
@@ -42,9 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const handleDesktopChange = (event) => {
-      if (event.matches) {
-        closeMenu();
-      }
+      if (event.matches) closeMenu();
     };
 
     if (typeof desktopMq.addEventListener === "function") {
@@ -54,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /* ===== REVEAL ON SCROLL — RETRIGGERS EVERY TIME ===== */
   const revealItems = document.querySelectorAll(".reveal");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -61,11 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   } else {
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
         });
       },
       {
