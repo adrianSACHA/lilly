@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luxury Retail Consultant | ASIDHU</title>
-    <meta name="description" content="20+ years luxury retail leadership. Strengthen retail operations, develop teams, deliver exceptional customer experiences. Executive search, wholesale strategy, interim leadership." />
-    <meta property="og:title" content="Luxury Retail Consultant | Lilly" />
-    <meta property="og:description" content="Luxury retail consulting, operations management, executive search and interim leadership for premium brands." />
-    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Lilly+Consultant" />
+    <meta
+      name="description"
+      content="20+ years luxury retail leadership. Strengthen retail operations, develop teams, deliver exceptional customer experiences. Executive search, wholesale strategy, interim leadership."
+    />
+    <meta property="og:title" content="Luxury Retail Consultant | ASIDHU" />
+    <meta
+      property="og:description"
+      content="Luxury retail consulting, operations management, executive search and interim leadership for premium brands."
+    />
+    <meta property="og:image" content="images/og-image.jpg" />
     <meta property="og:type" content="website" />
+
     <link rel="icon" href="images/favico.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
     <script src="js/script.js" defer></script>
   </head>
   <body>
-    <header>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
       <div class="container header-inner">
-        <a href="#hero" class="logo-link">
-          <div class="brand-mark">
-            <img src="images/logo_ASidhu.png" alt="Asidhu logo" />
-          </div>
+        <a href="#hero" class="logo-link" aria-label="Go to homepage">
+          <span class="brand-mark">
+            <img src="images/logo_ASidhu.png" alt="ASIDHU logo" />
+          </span>
         </a>
-        <nav class="nav-menu">
+
+        <button
+          class="hamburger"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="hamburger-box" aria-hidden="true">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+        </button>
+
+        <nav id="site-nav" class="nav-menu" aria-label="Primary navigation">
           <a href="#hero">Home</a>
           <a href="#about">About</a>
           <a href="#services">Services</a>
@@ -29,123 +65,173 @@
           <a href="#approach">Approach</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </header>
 
-    <main>
-      <section id="hero" class="hero section">
+    <main id="main">
+      <section id="hero" class="section hero reveal">
         <div class="container hero-grid">
-          <img src="images/overlay.jpg" alt="Profile photo of Lilly" class="profile-photo" />
+          <div class="hero-media">
+            <img
+              src="images/overlay.jpg"
+              alt="Profile photo of Lilly"
+              class="profile-photo"
+              width="560"
+              height="720"
+            />
+          </div>
+
           <div class="hero-copy">
-            <h1>Luxury Retail.</h1>
-            <p class="tagline">Built through experience.</p>
-            <p class="hero-text">Helping luxury and premium brands strengthen retail, elevate operations and build exceptional teams.</p>
-            <p class="hero-subtext">With more than 20 years of luxury retail leadership, I partner with brands to improve performance, develop people and deliver outstanding customer experiences.</p>
-            <p class="hero-emphasis">Luxury is in the details. Excellence is in the execution.</p>
-            <a class="button button-primary" href="#contact"><span>Let's Connect</span></a>
+            <p class="eyebrow">Luxury retail consultancy</p>
+            <h1>Luxury Retail. Built through experience.</h1>
+            <p class="hero-text">
+              Helping luxury and premium brands strengthen retail, elevate
+              operations and build exceptional teams.
+            </p>
+            <p class="hero-subtext">
+              With more than 20 years of luxury retail leadership, I partner
+              with brands to improve performance, develop people and deliver
+              outstanding customer experiences.
+            </p>
+            <p class="hero-emphasis">
+              Luxury is in the details. Excellence is in the execution.
+            </p>
+            <a class="button button-primary" href="#contact">Let's Connect</a>
           </div>
         </div>
       </section>
 
-      <section id="about" class="section about-section">
-        <div class="container">
-          <h2>About</h2>
-          <p class="about-intro">Retail has never just been my career.</p>
-          <p class="about-passion">It's my passion.</p>
-          <p class="about-text">For more than 20 years I've worked across some of the world's leading luxury brands, progressing from the shop floor to regional leadership, supporting boutiques, flagship stores, wholesale partnerships and multi-site operations across Europe.</p>
-          <div class="about-highlights">
-            <p>I've opened stores</p>
-            <p>I've closed stores</p>
-            <p>I've developed leaders</p>
-            <p>I've improved customer experiences</p>
-            <p>I've transformed retail operations</p>
-            <p>I've recruited exceptional talent</p>
+      <section id="about" class="section about-section reveal">
+        <div class="container section-shell">
+          <div class="section-heading">
+            <p class="section-kicker">About</p>
+            <h2>Retail has never just been my career.</h2>
+            <p class="section-lead">It’s my passion.</p>
           </div>
-          <p class="about-conclusion">Most importantly, I've learnt that luxury isn't created by chance. It's created by people who genuinely care about every detail.</p>
-          <p class="about-today">Today I work alongside luxury and premium brands, sharing that experience to help businesses grow, strengthen their teams and deliver operational excellence.</p>
+
+          <p class="section-copy">
+            For more than 20 years I’ve worked across some of the world’s
+            leading luxury brands, progressing from the shop floor to regional
+            leadership, supporting boutiques, flagship stores, wholesale
+            partnerships and multi-site operations across Europe.
+          </p>
+
+          <div class="info-grid">
+            <p>I’ve opened stores</p>
+            <p>I’ve closed stores</p>
+            <p>I’ve developed leaders</p>
+            <p>I’ve improved customer experiences</p>
+            <p>I’ve transformed retail operations</p>
+            <p>I’ve recruited exceptional talent</p>
+          </div>
+
+          <p class="section-copy">
+            Most importantly, I’ve learnt that luxury isn’t created by chance.
+            It’s created by people who genuinely care about every detail.
+          </p>
+
+          <p class="section-copy section-copy-last">
+            Today I work alongside luxury and premium brands, sharing that
+            experience to help businesses grow, strengthen their teams and
+            deliver operational excellence.
+          </p>
         </div>
       </section>
 
-      <section id="services" class="section cards-section">
-        <div class="container">
-          <h2>Services</h2>
+      <section id="services" class="section services-section reveal">
+        <div class="container section-shell">
+          <div class="section-heading">
+            <p class="section-kicker">Services</p>
+            <h2>Practical support for luxury and premium brands.</h2>
+          </div>
+
           <div class="cards-grid">
             <article class="card">
-              <div class="card-front">
-                <h3>Retail</h3>
-              </div>
-              <div class="card-back">
-                <p>Great retail starts with people. I help brands build high-performing teams, develop confident leaders and create memorable customer experiences. When your people succeed, your business succeeds.</p>
-              </div>
+              <h3>Retail</h3>
+              <p>
+                Great retail starts with people. I help brands build
+                high-performing teams, develop confident leaders and create
+                memorable customer experiences.
+              </p>
             </article>
+
             <article class="card">
-              <div class="card-front">
-                <h3>Retail Operations</h3>
-              </div>
-              <div class="card-back">
-                <p>I've spent 20+ years ensuring stores don't simply look exceptional — they operate exceptionally. From boutique aesthetics to commercial performance. Luxury is built through consistency, attention to detail and high standards.</p>
-              </div>
+              <h3>Retail Operations</h3>
+              <p>
+                From boutique aesthetics to commercial performance, I help
+                stores operate with consistency, precision and high standards.
+              </p>
             </article>
+
             <article class="card">
-              <div class="card-front">
-                <h3>Executive Search</h3>
-              </div>
-              <div class="card-back">
-                <p>Finding the right person isn't about sending CVs. I identify exceptional talent for luxury brands—people with the right experience, character and values. Every search is personal. Quality before quantity.</p>
-              </div>
+              <h3>Executive Search</h3>
+              <p>
+                I identify exceptional talent for luxury brands with the right
+                experience, character and values. Every search is personal.
+              </p>
             </article>
+
             <article class="card">
-              <div class="card-front">
-                <h3>Wholesale</h3>
-              </div>
-              <div class="card-back">
-                <p>I've supported wholesale with Harrods, Selfridges and Dover Street Market. Understanding both operational and commercial sides allows me to help brands protect their customer experience everywhere their products are sold.</p>
-              </div>
+              <h3>Wholesale</h3>
+              <p>
+                I support brands in protecting customer experience across
+                wholesale partnerships, balancing commercial and operational
+                priorities.
+              </p>
             </article>
+
             <article class="card">
-              <div class="card-front">
-                <h3>Interim Leadership</h3>
-              </div>
-              <div class="card-back">
-                <p>Sometimes businesses need experienced leadership straight away. Whether supporting transformation, leading projects, opening stores or providing temporary senior leadership. Practical. Hands-on. Results-focused.</p>
-              </div>
+              <h3>Interim Leadership</h3>
+              <p>
+                When a business needs experienced leadership quickly, I provide
+                hands-on support for change, store openings and strategic
+                transitions.
+              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="why-me" class="section why-section">
-        <div class="container">
-          <h2>Why Work With Me?</h2>
-          <p class="why-intro">I've never believed you can advise someone on something you've never done.</p>
-          <p class="why-intro">Everything I offer comes from real experience.</p>
-          <div class="why-list">
-            <p>I've managed flagship stores.</p>
-            <p>Led regional operations.</p>
-            <p>Supported wholesale growth.</p>
-            <p>Opened and closed boutiques.</p>
-            <p>Improved retail performance.</p>
-            <p>Developed future leaders.</p>
-            <p>Worked with some of the world's most recognised luxury brands.</p>
+      <section id="why-me" class="section why-section reveal">
+        <div class="container section-shell">
+          <div class="section-heading">
+            <p class="section-kicker">Why work with me</p>
+            <h2>Everything I offer comes from real experience.</h2>
           </div>
-          <p class="why-philosophy">I don't believe in complicated solutions.</p>
-          <p class="why-philosophy">I believe in understanding your business, your people and your goals, then working alongside you to deliver meaningful results.</p>
+
+          <div class="info-grid info-grid-neutral">
+            <p>I’ve managed flagship stores.</p>
+            <p>I’ve led regional operations.</p>
+            <p>I’ve supported wholesale growth.</p>
+            <p>I’ve opened and closed boutiques.</p>
+            <p>I’ve improved retail performance.</p>
+            <p>I’ve developed future leaders.</p>
+            <p>I’ve worked with globally recognised luxury brands.</p>
+          </div>
+
+          <p class="section-copy">
+            I don’t believe in complicated solutions. I believe in
+            understanding your business, your people and your goals, then
+            working alongside you to deliver meaningful results.
+          </p>
         </div>
       </section>
 
-      <section id="approach" class="section approach-section">
-        <div class="container">
-          <h2>My Approach</h2>
-          <p class="approach-intro">Every project begins with one simple question.</p>
-          <p class="approach-question">What does success look like?</p>
-          <p class="approach-text">Once we define that together, I work alongside your business to make it happen.</p>
-          <div class="approach-list">
-            <p>You'll find me in stores.</p>
+      <section id="approach" class="section approach-section reveal">
+        <div class="container section-shell">
+          <div class="section-heading">
+            <p class="section-kicker">Approach</p>
+            <h2>Every project begins with one simple question.</h2>
+            <p class="section-lead">What does success look like?</p>
+          </div>
+
+          <p class="section-copy">
+            Once we define that together, I work alongside your business to make
+            it happen.
+          </p>
+
+          <div class="info-grid info-grid-neutral">
+            <p>You’ll find me in stores.</p>
             <p>Talking to teams.</p>
             <p>Walking the customer journey.</p>
             <p>Looking at the details others often overlook.</p>
@@ -153,33 +239,70 @@
             <p>Improving processes.</p>
             <p>Finding practical solutions.</p>
           </div>
-          <p class="approach-conclusion">Because that's where real retail happens.</p>
+
+          <p class="section-copy section-copy-last">
+            Because that’s where real retail happens.
+          </p>
         </div>
       </section>
 
-      <section id="contact" class="section contact-section">
+      <section id="contact" class="section contact-section reveal">
         <div class="container contact-card">
           <div>
-            <h2>Contact</h2>
-            <p class="contact-copy">Ready to discuss retail operations, wholesale growth or team strategy? Let's talk.</p>
+            <p class="section-kicker">Contact</p>
+            <h2>Ready to discuss retail operations, wholesale growth or team strategy?</h2>
+            <p class="contact-copy">Let’s talk.</p>
           </div>
+
           <div class="contact-actions">
-            <a class="button button-secondary" href="mailto:asa@asidhuretailconsultancy.com"><span>Let's Talk</span></a>
+            <a class="button button-secondary" href="mailto:asa@asidhuretailconsultancy.com">
+              Let’s Talk
+            </a>
+
             <ul class="contact-list">
-              <li><strong>Email:</strong> <a href="mailto:asa@asidhuretailconsultancy.com">asa@asidhuretailconsultancy.com</a></li>
-              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lilly-consulting" target="_blank" rel="noopener noreferrer">linkedin.com/in/lilly-consulting</a></li>
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:asa@asidhuretailconsultancy.com">
+                  asa@asidhuretailconsultancy.com
+                </a>
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a
+                  href="https://www.linkedin.com/in/lilly-consulting"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin.com/in/lilly-consulting
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© 2026 Lilly Consulting. All rights reserved.</p>
-        <a href="https://www.linkedin.com/in/lilly-consulting" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="linkedin-icon">
-            <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5V24H0V8zm7.5 0h4.78v2.16h.07c.67-1.27 2.32-2.6 4.78-2.6 5.11 0 6.06 3.37 6.06 7.74V24h-5V15.08c0-2.11-.04-4.82-2.94-4.82-2.95 0-3.4 2.3-3.4 4.68V24h-5V8z" />
+        <p>© 2026 ASIDHU Retail Consultancy. All rights reserved.</p>
+
+        <a
+          href="https://www.linkedin.com/in/lilly-consulting"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+          class="footer-linkedin"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            class="linkedin-icon"
+            aria-hidden="true"
+          >
+            <path
+              d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5V24H0V8zm7.5 0h4.78v2.16h.07c.67-1.27 2.32-2.6 4.78-2.6 5.11 0 6.06 3.37 6.06 7.74V24h-5V15.08c0-2.11-.04-4.82-2.94-4.82-2.95 0-3.4 2.3-3.4 4.68V24h-5V8z"
+            />
           </svg>
         </a>
       </div>
