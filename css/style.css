@@ -190,6 +190,7 @@ header {
   flex-wrap: wrap;
   gap: 1.5rem;
   flex: 1;
+  padding: 0;
 }
 
 .nav-menu a {
@@ -732,13 +733,13 @@ footer {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 0;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-  }
+}
 
-  .nav-menu.active {
+.nav-menu.active {
+    padding: 1rem 0;
     max-height: 500px;
   }
 
