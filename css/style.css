@@ -3,9 +3,9 @@
   --surface: #2a2a2a;
   --text: #f5f5f5;
   --muted: #b0b0b0;
-  --primary: #d4af37;
-  --primary-dark: #c49a27;
-  --border: rgba(212, 175, 55, 0.2);
+  --primary: #d4a574;
+  --primary-dark: #b8860b;
+  --border: rgba(212, 165, 116, 0.2);
   --shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
 }
 
