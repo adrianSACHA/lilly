@@ -77,6 +77,7 @@ html {
 
 body {
   margin: 0;
+  padding-top: 70px;
   font-family: "Lato", "Inter", "Segoe UI", Roboto, Arial, sans-serif;
   line-height: 1.6;
   color: var(--text);
@@ -130,8 +131,10 @@ img {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
@@ -142,8 +145,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1rem;
   gap: 2rem;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
 }
 
 .logo-link {
@@ -156,19 +161,28 @@ header {
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  box-shadow: 0 8px 20px rgba(200, 169, 106, 0.2);
+  background: rgba(15, 15, 15, 0.8);
+  border: 2px solid var(--primary);
+  box-shadow: 0 8px 20px rgba(200, 169, 106, 0.3);
+  transition: all 0.3s ease;
+}
+
+.brand-mark:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(200, 169, 106, 0.5);
+  background: rgba(15, 15, 15, 0.95);
 }
 
 .brand-mark img {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .nav-menu {
@@ -734,8 +748,9 @@ footer {
     border-bottom: 1px solid rgba(200, 169, 106, 0.1);
   }
 
-  header {
-    position: relative;
+  .brand-mark {
+    width: 4rem;
+    height: 4rem;
   }
 }
 
