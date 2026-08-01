@@ -737,7 +737,6 @@ h3 {
         flex-wrap: wrap;
         align-items: center;
         justify-content: flex-end;
-        gap: 1.25rem;
         padding: 0;
         border: 0;
         border-radius: 0;
@@ -747,11 +746,16 @@ h3 {
         visibility: visible;
         pointer-events: auto;
         transform: none;
+        height: stretch;
     }
 
     .nav-menu a {
         padding: 0;
         background: transparent;
+        display: flex;
+        align-items: center;
+        padding-inline: 0.5rem;
+        height: 100%;
     }
 
     .hero {
