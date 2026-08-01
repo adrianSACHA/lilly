@@ -388,6 +388,7 @@ h3 {
 .hero-emphasis,
 .section-copy,
 .section-lead,
+.section-heading,
 .contact-copy,
 .contact-list,
 .footer-inner {
@@ -693,6 +694,10 @@ h3 {
 @media (min-width: 700px) {
     .section {
         padding: 5rem 0;
+    }
+
+    .section-heading {
+        margin-inline: auto;
     }
 
     .section-shell,
