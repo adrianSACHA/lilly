@@ -442,13 +442,13 @@ h3 {
     background: rgba(255, 255, 255, 0.02);
 }
 
-.info-grid p {
+.info-grid li {
     margin: 0;
     color: var(--primary);
     font-weight: 600;
 }
 
-.info-grid-neutral p {
+.info-grid-neutral li {
     color: var(--text);
     font-weight: 500;
 }
