@@ -746,7 +746,7 @@ h3 {
     }
     
     .hero-grid {
-        grid-template-columns: minmax(180px, 270px) minmax(0, 1fr);
+        grid-template-columns: minmax(180px, 25rem) minmax(0, 1fr);
         text-align: left;
         gap: 2.5rem;
     }
@@ -762,12 +762,13 @@ h3 {
     }
     
     .hero-media {
-        justify-content: start;
+        justify-content: center;
+        align-items: center;
         height: 100%;
     }
 
     .profile-photo {
-        width: clamp(7.5rem, 20vw, 20rem);
+        width: clamp(7.5rem, 25vw, 30rem);
         max-width: 20rem;
         max-height: 20rem;
         height: auto;
