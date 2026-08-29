@@ -648,6 +648,10 @@ h3 {
     font-size: 0.95rem;
 }
 
+.footer-inner p {
+    text-align: center;
+}
+
 .footer-linkedin {
     width: fit-content;
 }
