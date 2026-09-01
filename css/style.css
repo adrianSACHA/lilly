@@ -236,26 +236,30 @@ button {
     display: grid;
     gap: 0.25rem;
     padding: 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(200, 169, 106, 0.25);
+    border-radius: 1.25rem;
+    background: rgba(20, 18, 14, 0.35);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.5rem) scale(0.98);
     transition:
-        opacity var(--transition),
-        transform var(--transition),
-        visibility var(--transition);
+        opacity 320ms var(--ease-out),
+        transform 320ms var(--ease-out),
+        visibility 320ms var(--ease-out);
 }
 
 .site-header.menu-open .nav-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .nav-menu a {
