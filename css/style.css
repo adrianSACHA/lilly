@@ -103,6 +103,7 @@ button {
 /* ===== HEADER ===== */
 .site-header {
     position: fixed;
+    isolation: isolate;
     inset: 0 0 auto 0;
     z-index: 30;
     min-height: var(--header-height);
@@ -117,7 +118,7 @@ button {
         transform: translateY(-100%);
     }
 
-    .site-header.header-hidden ~ .nav-menu {
+    .site-header.header-hidden~.nav-menu {
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
@@ -242,10 +243,6 @@ button {
 }
 
 /* ===== NAV MENU ===== */
-.site-header {
-    isolation: isolate;
-}
-
 .site-header.menu-open .nav-menu {
     opacity: 1;
     visibility: visible;
@@ -304,7 +301,7 @@ button {
 
 /* ===== SECTIONS ===== */
 .section {
-    padding: 4rem 0;
+    padding: 2rem 0;
     position: relative;
 }
 
@@ -690,42 +687,31 @@ h3 {
 
 /* ===== REVEAL ON SCROLL ===== */
 .reveal {
-    opacity: 1;
-    transform: none;
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 640ms var(--ease-out),
+        transform 640ms var(--ease-out);
+    will-change: opacity, transform;
 }
 
-@supports (animation-timeline: view()) {
-    @keyframes reveal-up {
-        from {
-            opacity: 0;
-            transform: translateY(24px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .reveal {
-        animation: reveal-up linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 30%;
-    }
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
     .reveal {
-        animation: none;
         opacity: 1;
         transform: none;
+        transition: none;
     }
 }
 
 /* ===== RESPONSIVE — MIN-WIDTH ONLY ===== */
 @media (min-width: 700px) {
     .section {
-        padding: 5rem 0;
+        padding: 3rem 0;
     }
 
     .section-heading {
@@ -788,12 +774,45 @@ h3 {
 
 
     .nav-menu a {
-        padding: 0;
+        position: relative;
+        padding: 0.5rem 0.15rem;
+        color: rgba(245, 245, 245, 0.88);
         background: transparent;
-        display: flex;
-        align-items: center;
-        padding-inline: 0.5rem;
-        height: 100%;
+        transition: color 240ms var(--ease-out);
+    }
+
+    .nav-menu a::after {
+        content: "";
+        position: absolute;
+        left: 0.15rem;
+        right: 0.15rem;
+        bottom: -0.4rem;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold-1), var(--gold-3));
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 280ms var(--ease-out);
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible {
+        color: var(--gold-3);
+        background: transparent;
+        padding-inline: 0.15rem;
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    .nav-menu a.active {
+        color: var(--gold-3);
+    }
+
+    .nav-menu a.active::after {
+        transform: scaleX(1);
     }
 
     .hero {
@@ -838,7 +857,7 @@ h3 {
 
 @media (min-width: 1080px) {
     .section {
-        padding: 6rem 0;
+        padding: 4rem 0;
     }
 
     .section.hero {

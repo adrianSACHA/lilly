@@ -72,17 +72,34 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScroll = currentScroll;
   }, { passive: true });
 
-  /* ===== REVEAL ON SCROLL — RETRIGGERS EVERY TIME ===== */
+  /* ===== REVEAL ON SCROLL — ONCE PER SECTION ===== */
   const revealItems = document.querySelectorAll(".reveal");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const navLinkMap = new Map();
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href && href.startsWith("#")) {
+      navLinkMap.set(href.slice(1), link);
+    }
+  });
+
+  const setActiveLink = (id) => {
+    navLinkMap.forEach((link, key) => {
+      link.classList.toggle("active", key === id);
+    });
+  };
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   } else {
-    const observer = new IntersectionObserver(
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          entry.target.classList.toggle("is-visible", entry.isIntersecting);
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
         });
       },
       {
@@ -93,7 +110,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealItems.forEach((item, index) => {
       item.style.transitionDelay = `${Math.min(index * 60, 240)}ms`;
-      observer.observe(item);
+      revealObserver.observe(item);
     });
+  }
+
+  /* ===== ACTIVE NAV LINK ON SCROLL ===== */
+  const sections = document.querySelectorAll("main section[id]");
+
+  if (sections.length && navLinkMap.size && "IntersectionObserver" in window) {
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          setActiveLink(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-100px 0px -60% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    sections.forEach((section) => navObserver.observe(section));
   }
 });
