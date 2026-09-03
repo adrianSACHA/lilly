@@ -246,6 +246,13 @@ button {
     isolation: isolate;
 }
 
+.site-header.menu-open .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
 .nav-menu {
     position: fixed;
     top: calc(var(--header-height));
@@ -254,15 +261,14 @@ button {
     display: grid;
     gap: 0.25rem;
     padding: 0.5rem;
-    background: rgba(10, 9, 8, 0.65);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
-    backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(20, 17, 14, 0.88);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(200, 169, 106, 0.15);
+    border-radius: var(--radius-lg);
     box-shadow:
         0 16px 48px rgba(0, 0, 0, 0.55),
-        inset 0 1px 1px rgba(255, 255, 255, 0.25),
-        inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
     z-index: 25;
     transform: translateY(-0.5rem) scale(0.98);
     opacity: 0;
@@ -274,34 +280,26 @@ button {
         visibility 320ms var(--ease-out);
 }
 
-.site-header.menu-open ~ .nav-menu,
-body:has(.site-header.menu-open) .nav-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-}
-
 .nav-menu a {
+    position: relative;
+    display: block;
+    padding: 0.9rem 1.1rem;
+    border-radius: calc(var(--radius-lg) - 0.5rem);
+    color: rgba(245, 245, 245, 0.92);
+    font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 200ms ease, color 200ms ease, padding-left 200ms ease;
 }
 
 .nav-menu a:last-child {
     border-bottom: none;
 }
 
-.nav-menu a::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 50%);
-    pointer-events: none;
-}
-
 .nav-menu a:hover,
 .nav-menu a:focus-visible {
     color: var(--primary);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(200, 169, 106, 0.1);
+    padding-left: 1.4rem;
 }
 
 /* ===== SECTIONS ===== */
@@ -765,12 +763,16 @@ h3 {
         display: none;
     }
 
+    .header-inner {
+        justify-content: space-between;
+    }
+
     .nav-menu {
         position: static;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: flex-end;
+        gap: 0.25rem;
         padding: 0;
         border: 0;
         border-radius: 0;
@@ -780,8 +782,10 @@ h3 {
         visibility: visible;
         pointer-events: auto;
         transform: none;
-        height: stretch;
+        height: 100%;
+        margin-left: auto;
     }
+
 
     .nav-menu a {
         padding: 0;
