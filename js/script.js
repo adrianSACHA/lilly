@@ -51,26 +51,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===== HIDE HEADER ON SCROLL (MOBILE) ===== */
-  let lastScroll = 0;
-  const scrollThreshold = 10;
+let lastScroll = 0;
+const scrollThreshold = 10;
+let isAnchorScrolling = false;
+let anchorScrollTimeout = null;
 
-  window.addEventListener("scroll", () => {
-    if (!header) return;
-    if (window.innerWidth > 899) return;
-    if (header.classList.contains("menu-open")) return;
+window.addEventListener("scroll", () => {
+  if (!header) return;
+  if (window.innerWidth > 899) return;
+  if (header.classList.contains("menu-open")) return;
+  if (isAnchorScrolling) return;
 
-    const currentScroll = window.scrollY;
+  const currentScroll = window.scrollY;
 
-    if (Math.abs(currentScroll - lastScroll) < scrollThreshold) return;
+  if (Math.abs(currentScroll - lastScroll) < scrollThreshold) return;
 
-    if (currentScroll > lastScroll && currentScroll > 80) {
-      header.classList.add("header-hidden");
-    } else {
-      header.classList.remove("header-hidden");
-    }
+  if (currentScroll > lastScroll && currentScroll > 80) {
+    header.classList.add("header-hidden");
+  } else {
+    header.classList.remove("header-hidden");
+  }
 
-    lastScroll = currentScroll;
-  }, { passive: true });
+  lastScroll = currentScroll;
+}, { passive: true });
+
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+anchorLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    isAnchorScrolling = true;
+    header.classList.remove("header-hidden");
+
+    clearTimeout(anchorScrollTimeout);
+    anchorScrollTimeout = setTimeout(() => {
+      isAnchorScrolling = false;
+      lastScroll = window.scrollY;
+    }, 900);
+  });
+});
 
   /* ===== REVEAL ON SCROLL — ONCE PER SECTION ===== */
   const revealItems = document.querySelectorAll(".reveal");
