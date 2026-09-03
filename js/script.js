@@ -50,6 +50,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /* ===== HIDE HEADER ON SCROLL (MOBILE) ===== */
+  let lastScroll = 0;
+  const scrollThreshold = 10;
+
+  window.addEventListener("scroll", () => {
+    if (!header) return;
+    if (window.innerWidth > 899) return;
+    if (header.classList.contains("menu-open")) return;
+
+    const currentScroll = window.scrollY;
+
+    if (Math.abs(currentScroll - lastScroll) < scrollThreshold) return;
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+      header.classList.add("header-hidden");
+    } else {
+      header.classList.remove("header-hidden");
+    }
+
+    lastScroll = currentScroll;
+  }, { passive: true });
+
   /* ===== REVEAL ON SCROLL — RETRIGGERS EVERY TIME ===== */
   const revealItems = document.querySelectorAll(".reveal");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
