@@ -483,11 +483,13 @@ h3 {
     display: grid;
     gap: 1rem;
     margin-top: 2rem;
+    align-items: start;
 }
 
 .card {
-    height: 100%;
+    position: relative;
     padding: 1.5rem;
+    padding-bottom: 3rem;
     border: 1px solid rgba(200, 169, 106, 0.12);
     border-radius: 1.25rem;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
@@ -499,23 +501,110 @@ h3 {
         background 180ms var(--ease-out);
 }
 
-.card p {
+.copy-toggle {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+}
+
+.copy-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.copy-toggle::marker {
+    content: "";
+}
+
+.copy-text {
+    margin: 0 0 0.5rem;
+    color: #d0d0d0;
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-copy[open] .copy-text {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+.copy-toggle-label {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--gold-2);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 200ms ease;
+    white-space: nowrap;
+}
+
+.copy-toggle:hover .copy-toggle-label,
+.copy-toggle:focus-visible .copy-toggle-label {
+    color: var(--gold-3);
+}
+
+.copy-toggle-label::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 220ms ease;
+    margin-inline: 0;
+    margin-block: auto;
+}
+
+.card-copy[open] .copy-toggle-label::after {
+    transform: translateY(2px) rotate(225deg);
+}
+
+.label-less {
+    display: none;
+}
+
+.card-copy[open] .label-more {
+    display: none;
+}
+
+.card-copy[open] .label-less {
+    display: inline;
+}
+
+.copy-text {
     margin: 0;
     color: #d0d0d0;
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .card:hover {
+.card-copy[open] .copy-text {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    animation: copy-expand 260ms var(--ease-out);
+}
+
+@keyframes copy-expand {
+    from {
+        opacity: 0;
         transform: translateY(-4px);
-        border-color: var(--border-strong);
-        box-shadow: var(--shadow-md);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
     }
-}
 
-.card:focus-within {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-md);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== EXPERIENCE LOGO MARQUEE ===== */
