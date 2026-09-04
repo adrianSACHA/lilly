@@ -810,7 +810,7 @@ h3 {
     }
 
     .footer-inner {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr;
         align-items: center;
     }
 
