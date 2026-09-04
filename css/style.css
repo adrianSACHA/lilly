@@ -570,13 +570,14 @@ h3 {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    max-height: 4.95em;
+    transition: max-height 320ms var(--ease-out), opacity 320ms var(--ease-out);
 }
 
 .card-copy[open] .copy-text {
-    display: block;
     -webkit-line-clamp: unset;
-    overflow: visible;
-    animation: copy-expand 260ms var(--ease-out);
+    max-height: 40em;
+    opacity: 1;
 }
 
 @keyframes copy-expand {
@@ -584,6 +585,7 @@ h3 {
         opacity: 0;
         transform: translateY(-4px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
