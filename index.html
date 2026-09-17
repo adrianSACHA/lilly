@@ -43,20 +43,40 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "ASIDHU Retail Consultancy",
-  "url": "https://asidhuretailconsultancy.com/",
-  "logo": "https://asidhuretailconsultancy.com/images/logo_ASidhu.png",
-  "image": "https://asidhuretailconsultancy.com/images/overlay.jpg",
-  "description": "Luxury retail consulting, operations management, executive search and interim leadership for premium brands.",
-  "email": "asa@asidhuretailconsultancy.com",
-  "founder": {
-    "@type": "Person",
-    "name": "Agnes Sidhu",
-    "sameAs": ["https://uk.linkedin.com/in/asasidhu"]
-  },
-  "sameAs": ["https://uk.linkedin.com/in/asasidhu"],
-  "areaServed": ["United Kingdom", "Europe"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://asidhuretailconsultancy.com/#website",
+      "url": "https://asidhuretailconsultancy.com/",
+      "name": "ASIDHU Retail Consultancy",
+      "alternateName": ["ASIDHU", "Agnes Sidhu"],
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "https://asidhuretailconsultancy.com/#organization" }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://asidhuretailconsultancy.com/#organization",
+      "name": "ASIDHU Retail Consultancy",
+      "alternateName": "ASIDHU",
+      "url": "https://asidhuretailconsultancy.com/",
+      "logo": "https://asidhuretailconsultancy.com/images/logo_ASidhu.png",
+      "image": "https://asidhuretailconsultancy.com/images/overlay.jpg",
+      "description": "Luxury retail consulting, operations management, executive search and interim leadership for premium brands.",
+      "email": "asa@asidhuretailconsultancy.com",
+      "founder": { "@id": "https://asidhuretailconsultancy.com/#agnes-sidhu" },
+      "sameAs": ["https://uk.linkedin.com/in/asasidhu"],
+      "areaServed": ["United Kingdom", "Europe"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://asidhuretailconsultancy.com/#agnes-sidhu",
+      "name": "Agnes Sidhu",
+      "jobTitle": "Luxury Retail Consultant",
+      "worksFor": { "@id": "https://asidhuretailconsultancy.com/#organization" },
+      "url": "https://asidhuretailconsultancy.com/",
+      "sameAs": ["https://uk.linkedin.com/in/asasidhu"]
+    }
+  ]
 }
 </script>
 </head>
@@ -111,8 +131,9 @@
                     <p class="eyebrow">Luxury retail consultancy</p>
                     <h1>Luxury Retail<br> Built through experience</h1>
                     <p class="hero-text">
-                        Helping luxury and premium brands strengthen retail, elevate
-                        operations and build exceptional teams.
+                        I'm Agnes Sidhu, founder of ASIDHU Retail Consultancy. I help
+                        luxury and premium brands strengthen retail, elevate operations
+                        and build exceptional teams.
                     </p>
                     <p class="hero-subtext">
                         With more than 20 years of luxury retail leadership, I partner
@@ -134,7 +155,7 @@
                     <p class="section-lead">It’s my passion.</p>
                 </div>
                 <p class="section-copy">
-                    For more than 20 years I’ve worked across some of the world’s
+                    I’m Agnes Sidhu. For more than 20 years I’ve worked across some of the world’s
                     leading luxury brands, progressing from the shop floor to regional
                     leadership, supporting boutiques, flagship stores, wholesale
                     partnerships and multi-site operations across Europe.
