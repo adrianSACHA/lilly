@@ -761,7 +761,14 @@ h3 {
 }
 
 /* ===== REVEAL ON SCROLL ===== */
+/* Domyślnie treść jest widoczna (działa bez JS). Animacja uruchamia się
+   dopiero, gdy skrypt w <head> doda klasę "js" do <html>. */
 .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.js .reveal {
     opacity: 0;
     transform: translateY(40px);
     transition:
@@ -770,13 +777,15 @@ h3 {
     will-change: opacity, transform;
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal {
+
+    .reveal,
+    .js .reveal {
         opacity: 1;
         transform: none;
         transition: none;

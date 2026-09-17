@@ -1,0 +1,18 @@
+{
+  "name": "ASIDHU Retail Consultancy",
+  "short_name": "ASIDHU",
+  "description": "Luxury retail consulting, operations management, executive search and interim leadership for premium brands.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#0f0f0f",
+  "icons": [
+    {
+      "src": "images/logo_ASidhu.png",
+      "sizes": "320x320",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
